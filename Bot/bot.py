@@ -1,4 +1,5 @@
 import ccxt
+import jsonhandler
 import preload
 import apihandler
 
@@ -6,21 +7,27 @@ APIKEY = "zSVrdLDnQeoexXYAF4ybrf1cG8dznNV7V2yQ0AfiWpNdwL50yBGXjdA40EdR1Z73"
 SECRETKEY = "sFSSiCycsu9NPP6tKW2bhIcnP71VuPb7p4rP6W5Vmr7lyX3J6WhUNEGJhYPU6pqV"
 TIMEOUT = 3000
 
+try:
+    variables = jsonhandler.handlejson()
+
+except FileNotFoundError:
+    variables = jsonhandler.createjson()
+
+SYMBOL = variables["SYMBOL"]
+
+DIP_THRESHOLD = variables["DIP_THRESHOLD"]
+UPWARDS_TREND_THRESHOLD = variables["UPWARDS_TREND_THRESHOLD"]
+PROFIT_THRESHOLD = variables["PROFIT_THRESHOLD"]
+STOP_LOSS_THRESHOLD = variables["STOP_LOSS_THRESHOLD"]
+
+PERCENT_TO_TRADE = variables["PERCENT_TO_TRADE"]
+
+nextIsBuy = variables["nextIsBuy"]
+lastOpPrice = variables["lastOpPrice"]
+
+
 exchange = preload.initiate("binance", APIKEY, SECRETKEY, TIMEOUT)
 markets = preload.loadMarkets(exchange)
-
-SYMBOL = "BTC/USDT"
-
-DIP_THRESHOLD = -1.00
-UPWARDS_TREND_THRESHOLD = 1.5
-
-PROFIT_THRESHOLD = 1.25
-STOP_LOSS_THRESHOLD = -2.00
-
-PERCENT_TO_TRADE = 50
-
-nextIsBuy = True
-lastOpPrice = 11744.89
 
 
 def makeTrade():
