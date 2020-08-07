@@ -21,7 +21,6 @@ try:
 except FileNotFoundError:
     variables, varfile = jsonhandler.createjson()
 
-
 SYMBOL = variables["SYMBOL"]
 
 DIP_THRESHOLD = variables["DIP_THRESHOLD"]
@@ -82,7 +81,3 @@ def main():
         print(makeTrade())
         jsonhandler.updatejson(variables, nextIsBuy, lastOpPrice)
         time.sleep(5)
-
-
-if __name__ == "__main__":
-    main()

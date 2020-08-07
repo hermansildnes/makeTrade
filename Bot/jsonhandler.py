@@ -3,7 +3,8 @@ import json
 
 def loadjson():
     varfile = open("variables.json",)
-    var = json.load(varfile)
+    variable = json.load(varfile)
+    var = variable["variables"][0]
     return var, varfile
 
 
@@ -27,7 +28,8 @@ def createjson():
     varfile.close()
 
     varfile = open("variables.json",)
-    var = json.load(varfile)
+    variable = json.load(varfile)
+    var = variable["variables"][0]
     return var, varfile
 
 
