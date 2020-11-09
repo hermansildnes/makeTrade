@@ -130,3 +130,5 @@ dmypy.json
 
 # VSCode directory
 .vscode
+node_modules
+APISECRET.txt

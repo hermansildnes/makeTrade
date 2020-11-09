@@ -6,8 +6,8 @@ import apihandler
 
 # Sets APIKEY, SECRETKEY and TIMEOUT, then uses it to initiate
 # exchange and load markets
-APIKEY = "zSVrdLDnQeoexXYAF4ybrf1cG8dznNV7V2yQ0AfiWpNdwL50yBGXjdA40EdR1Z73"
-SECRETKEY = "sFSSiCycsu9NPP6tKW2bhIcnP71VuPb7p4rP6W5Vmr7lyX3J6WhUNEGJhYPU6pqV"
+APIKEY = ""
+SECRETKEY = ""
 TIMEOUT = 3000
 
 exchange = preload.initiate("binance", APIKEY, SECRETKEY, TIMEOUT)
